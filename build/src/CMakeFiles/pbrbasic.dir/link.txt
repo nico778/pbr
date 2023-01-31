@@ -1,0 +1,1 @@
+/usr/bin/c++  -DVK_USE_PLATFORM_XCB_KHR -DNOMINMAX -D_USE_MATH_DEFINES -rdynamic CMakeFiles/pbrbasic.dir/pbrbasic/pbrbasic.cpp.o -o ../bin/pbrbasic  -lxcb -lvulkan -lvulkan ../core/libbase.a -lxcb -lvulkan 

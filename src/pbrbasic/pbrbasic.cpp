@@ -51,15 +51,15 @@ public:
 
 	VkPipelineLayout pl_Layout;
 	VkPipeline pl;
-	VkDescriptorSetLayout descriptorSetLayout;
-	VkDescriptorSet descriptorSet;
+	VkDescriptorSetLayout dSet_Layout;
+	VkDescriptorSet dSet;
 
 	//default materials to select from
 	std::vector<Material> materials;
-	int32_t materialIndex = 0;
+	int32_t material_ID = 0;
 
-	std::vector<std::string> materialNames;
-	std::vector<std::string> objectNames;
+	std::vector<std::string> material_Title;
+	std::vector<std::string> mesh_Title;
 
 	VulkanExample() : VulkanExampleBase(ENABLE_VALIDATION)
 	{
@@ -83,11 +83,11 @@ public:
 		materials.push_back(Material("Platinum", glm::vec3(0.672411f, 0.637331f, 0.585456f), 0.1f, 1.0f));
 
 		for (auto material : materials) {
-			materialNames.push_back(material.title);
+			material_Title.push_back(material.title);
 		}
-		objectNames = { "Sphere", "Teapot", "Torusknot", "Deer" };
+		mesh_Title = { "Sphere", "Teapot", "Torusknot", "Deer" };
 
-		materialIndex = 0;
+		material_ID = 0;
 	}
 
 	~VulkanExample()
@@ -95,7 +95,7 @@ public:
 		vkDestroyPipeline(device, pl, nullptr);
 
 		vkDestroyPipelineLayout(device, pl_Layout, nullptr);
-		vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
+		vkDestroyDescriptorSetLayout(device, dSet_Layout, nullptr);
 
 		uniBufs.artefact.destroy();
 		uniBufs.props.destroy();
@@ -135,9 +135,9 @@ public:
 
 			//objects
 			vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl);
-			vkCmdBindDescriptorSets(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl_Layout, 0, 1, &descriptorSet, 0, NULL);
+			vkCmdBindDescriptorSets(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl_Layout, 0, 1, &dSet, 0, NULL);
 
-			Material mat = materials[materialIndex];
+			Material mat = materials[material_ID];
 
 			//draw materials
 			for (uint32_t y = 0; y < GRID_DIM; y++) {
@@ -178,10 +178,10 @@ public:
 		VkDescriptorSetLayoutCreateInfo descriptorLayout =
 			vks::initializers::descriptorSetLayoutCreateInfo(setLayoutBindings);
 
-		VK_CHECK_RESULT(vkCreateDescriptorSetLayout(device, &descriptorLayout, nullptr, &descriptorSetLayout));
+		VK_CHECK_RESULT(vkCreateDescriptorSetLayout(device, &descriptorLayout, nullptr, &dSet_Layout));
 
 		VkPipelineLayoutCreateInfo pipelineLayoutCreateInfo =
-			vks::initializers::pipelineLayoutCreateInfo(&descriptorSetLayout, 1);
+			vks::initializers::pipelineLayoutCreateInfo(&dSet_Layout, 1);
 
 		std::vector<VkPushConstantRange> pushConstantRanges = {
 			vks::initializers::pushConstantRange(VK_SHADER_STAGE_VERTEX_BIT, sizeof(glm::vec3), 0),
@@ -209,14 +209,14 @@ public:
 		// Descriptor sets
 
 		VkDescriptorSetAllocateInfo allocInfo =
-			vks::initializers::descriptorSetAllocateInfo(descriptorPool, &descriptorSetLayout, 1);
+			vks::initializers::descriptorSetAllocateInfo(descriptorPool, &dSet_Layout, 1);
 
 		// 3D object descriptor set
-		VK_CHECK_RESULT(vkAllocateDescriptorSets(device, &allocInfo, &descriptorSet));
+		VK_CHECK_RESULT(vkAllocateDescriptorSets(device, &allocInfo, &dSet));
 
 		std::vector<VkWriteDescriptorSet> writeDescriptorSets = {
-			vks::initializers::writeDescriptorSet(descriptorSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 0, &uniBufs.artefact.descriptor),
-			vks::initializers::writeDescriptorSet(descriptorSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, &uniBufs.props.descriptor),
+			vks::initializers::writeDescriptorSet(dSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 0, &uniBufs.artefact.descriptor),
+			vks::initializers::writeDescriptorSet(dSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, &uniBufs.props.descriptor),
 		};
 		vkUpdateDescriptorSets(device, static_cast<uint32_t>(writeDescriptorSets.size()), writeDescriptorSets.data(), 0, NULL);
 	}
@@ -349,10 +349,10 @@ public:
 	virtual void OnUpdateUIOverlay(vks::UIOverlay *overlay)
 	{
 		if (overlay->header("Settings")) {
-			if (overlay->comboBox("Material", &materialIndex, materialNames)) {
+			if (overlay->comboBox("Material", &material_ID, material_Title)) {
 				buildCommandBuffers();
 			}
-			if (overlay->comboBox("Object type", &meshes.artefactID, objectNames)) {
+			if (overlay->comboBox("Object type", &meshes.artefactID, mesh_Title)) {
 				updateUniformBuffers();
 				buildCommandBuffers();
 			}

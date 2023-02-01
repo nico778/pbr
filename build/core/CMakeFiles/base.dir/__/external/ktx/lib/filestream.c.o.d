@@ -1,6 +1,6 @@
 core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.o: \
- /home/nico/MEGAsync/pbr/external/ktx/lib/filestream.c \
- /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
+ /home/nico/pbr/external/ktx/lib/filestream.c /usr/include/stdc-predef.h \
+ /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -58,11 +58,11 @@ core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.o: \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
- /home/nico/MEGAsync/pbr/external/ktx/include/ktx.h \
+ /home/nico/pbr/external/ktx/include/ktx.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/ktxint.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/filestream.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/stream.h
+ /home/nico/pbr/external/ktx/lib/ktxint.h \
+ /home/nico/pbr/external/ktx/lib/filestream.h \
+ /home/nico/pbr/external/ktx/lib/stream.h

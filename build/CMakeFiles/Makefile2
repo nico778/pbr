@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nico/MEGAsync/pbr
+CMAKE_SOURCE_DIR = /home/nico/pbr
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nico/MEGAsync/pbr/build
+CMAKE_BINARY_DIR = /home/nico/pbr/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -114,14 +114,14 @@ src/clean: src/CMakeFiles/pbrbasic.dir/clean
 core/CMakeFiles/base.dir/all:
 	$(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/depend
 	$(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nico/MEGAsync/pbr/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target base"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nico/pbr/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target base"
 .PHONY : core/CMakeFiles/base.dir/all
 
 # Build rule for subdir invocation for target.
 core/CMakeFiles/base.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/MEGAsync/pbr/build/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/pbr/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/base.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/MEGAsync/pbr/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/pbr/build/CMakeFiles 0
 .PHONY : core/CMakeFiles/base.dir/rule
 
 # Convenience name for target.
@@ -140,14 +140,14 @@ core/CMakeFiles/base.dir/clean:
 src/CMakeFiles/pbrbasic.dir/all: core/CMakeFiles/base.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/pbrbasic.dir/build.make src/CMakeFiles/pbrbasic.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/pbrbasic.dir/build.make src/CMakeFiles/pbrbasic.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nico/MEGAsync/pbr/build/CMakeFiles --progress-num=21,22 "Built target pbrbasic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nico/pbr/build/CMakeFiles --progress-num=21,22 "Built target pbrbasic"
 .PHONY : src/CMakeFiles/pbrbasic.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/pbrbasic.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/MEGAsync/pbr/build/CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/pbr/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/pbrbasic.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/MEGAsync/pbr/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/pbr/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/pbrbasic.dir/rule
 
 # Convenience name for target.

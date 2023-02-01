@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nico/MEGAsync/pbr
+CMAKE_SOURCE_DIR = /home/nico/pbr
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nico/MEGAsync/pbr/build
+CMAKE_BINARY_DIR = /home/nico/pbr/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/nico/MEGAsync/pbr/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/nico/MEGAsync/pbr/build/CMakeFiles /home/nico/MEGAsync/pbr/build/core//CMakeFiles/progress.marks
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/MEGAsync/pbr/build/CMakeFiles 0
+	cd /home/nico/pbr/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/nico/pbr/build/CMakeFiles /home/nico/pbr/build/core//CMakeFiles/progress.marks
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nico/pbr/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/clean
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/nico/MEGAsync/pbr/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/nico/pbr/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 core/CMakeFiles/base.dir/rule:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/base.dir/rule
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/base.dir/rule
 .PHONY : core/CMakeFiles/base.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ base: core/CMakeFiles/base.dir/rule
 
 # fast build rule for target.
 base/fast:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/build
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/build
 .PHONY : base/fast
 
 VulkanBuffer.o: VulkanBuffer.cpp.o
@@ -135,7 +135,7 @@ VulkanBuffer.o: VulkanBuffer.cpp.o
 
 # target to build an object file
 VulkanBuffer.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanBuffer.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanBuffer.cpp.o
 .PHONY : VulkanBuffer.cpp.o
 
 VulkanBuffer.i: VulkanBuffer.cpp.i
@@ -143,7 +143,7 @@ VulkanBuffer.i: VulkanBuffer.cpp.i
 
 # target to preprocess a source file
 VulkanBuffer.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanBuffer.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanBuffer.cpp.i
 .PHONY : VulkanBuffer.cpp.i
 
 VulkanBuffer.s: VulkanBuffer.cpp.s
@@ -151,7 +151,7 @@ VulkanBuffer.s: VulkanBuffer.cpp.s
 
 # target to generate assembly for a file
 VulkanBuffer.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanBuffer.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanBuffer.cpp.s
 .PHONY : VulkanBuffer.cpp.s
 
 VulkanDebug.o: VulkanDebug.cpp.o
@@ -159,7 +159,7 @@ VulkanDebug.o: VulkanDebug.cpp.o
 
 # target to build an object file
 VulkanDebug.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDebug.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDebug.cpp.o
 .PHONY : VulkanDebug.cpp.o
 
 VulkanDebug.i: VulkanDebug.cpp.i
@@ -167,7 +167,7 @@ VulkanDebug.i: VulkanDebug.cpp.i
 
 # target to preprocess a source file
 VulkanDebug.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDebug.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDebug.cpp.i
 .PHONY : VulkanDebug.cpp.i
 
 VulkanDebug.s: VulkanDebug.cpp.s
@@ -175,7 +175,7 @@ VulkanDebug.s: VulkanDebug.cpp.s
 
 # target to generate assembly for a file
 VulkanDebug.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDebug.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDebug.cpp.s
 .PHONY : VulkanDebug.cpp.s
 
 VulkanDevice.o: VulkanDevice.cpp.o
@@ -183,7 +183,7 @@ VulkanDevice.o: VulkanDevice.cpp.o
 
 # target to build an object file
 VulkanDevice.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDevice.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDevice.cpp.o
 .PHONY : VulkanDevice.cpp.o
 
 VulkanDevice.i: VulkanDevice.cpp.i
@@ -191,7 +191,7 @@ VulkanDevice.i: VulkanDevice.cpp.i
 
 # target to preprocess a source file
 VulkanDevice.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDevice.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDevice.cpp.i
 .PHONY : VulkanDevice.cpp.i
 
 VulkanDevice.s: VulkanDevice.cpp.s
@@ -199,7 +199,7 @@ VulkanDevice.s: VulkanDevice.cpp.s
 
 # target to generate assembly for a file
 VulkanDevice.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDevice.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanDevice.cpp.s
 .PHONY : VulkanDevice.cpp.s
 
 VulkanSwapChain.o: VulkanSwapChain.cpp.o
@@ -207,7 +207,7 @@ VulkanSwapChain.o: VulkanSwapChain.cpp.o
 
 # target to build an object file
 VulkanSwapChain.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanSwapChain.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanSwapChain.cpp.o
 .PHONY : VulkanSwapChain.cpp.o
 
 VulkanSwapChain.i: VulkanSwapChain.cpp.i
@@ -215,7 +215,7 @@ VulkanSwapChain.i: VulkanSwapChain.cpp.i
 
 # target to preprocess a source file
 VulkanSwapChain.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanSwapChain.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanSwapChain.cpp.i
 .PHONY : VulkanSwapChain.cpp.i
 
 VulkanSwapChain.s: VulkanSwapChain.cpp.s
@@ -223,7 +223,7 @@ VulkanSwapChain.s: VulkanSwapChain.cpp.s
 
 # target to generate assembly for a file
 VulkanSwapChain.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanSwapChain.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanSwapChain.cpp.s
 .PHONY : VulkanSwapChain.cpp.s
 
 VulkanTexture.o: VulkanTexture.cpp.o
@@ -231,7 +231,7 @@ VulkanTexture.o: VulkanTexture.cpp.o
 
 # target to build an object file
 VulkanTexture.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTexture.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTexture.cpp.o
 .PHONY : VulkanTexture.cpp.o
 
 VulkanTexture.i: VulkanTexture.cpp.i
@@ -239,7 +239,7 @@ VulkanTexture.i: VulkanTexture.cpp.i
 
 # target to preprocess a source file
 VulkanTexture.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTexture.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTexture.cpp.i
 .PHONY : VulkanTexture.cpp.i
 
 VulkanTexture.s: VulkanTexture.cpp.s
@@ -247,7 +247,7 @@ VulkanTexture.s: VulkanTexture.cpp.s
 
 # target to generate assembly for a file
 VulkanTexture.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTexture.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTexture.cpp.s
 .PHONY : VulkanTexture.cpp.s
 
 VulkanTools.o: VulkanTools.cpp.o
@@ -255,7 +255,7 @@ VulkanTools.o: VulkanTools.cpp.o
 
 # target to build an object file
 VulkanTools.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTools.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTools.cpp.o
 .PHONY : VulkanTools.cpp.o
 
 VulkanTools.i: VulkanTools.cpp.i
@@ -263,7 +263,7 @@ VulkanTools.i: VulkanTools.cpp.i
 
 # target to preprocess a source file
 VulkanTools.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTools.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTools.cpp.i
 .PHONY : VulkanTools.cpp.i
 
 VulkanTools.s: VulkanTools.cpp.s
@@ -271,7 +271,7 @@ VulkanTools.s: VulkanTools.cpp.s
 
 # target to generate assembly for a file
 VulkanTools.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTools.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanTools.cpp.s
 .PHONY : VulkanTools.cpp.s
 
 VulkanUIOverlay.o: VulkanUIOverlay.cpp.o
@@ -279,7 +279,7 @@ VulkanUIOverlay.o: VulkanUIOverlay.cpp.o
 
 # target to build an object file
 VulkanUIOverlay.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o
 .PHONY : VulkanUIOverlay.cpp.o
 
 VulkanUIOverlay.i: VulkanUIOverlay.cpp.i
@@ -287,7 +287,7 @@ VulkanUIOverlay.i: VulkanUIOverlay.cpp.i
 
 # target to preprocess a source file
 VulkanUIOverlay.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.i
 .PHONY : VulkanUIOverlay.cpp.i
 
 VulkanUIOverlay.s: VulkanUIOverlay.cpp.s
@@ -295,7 +295,7 @@ VulkanUIOverlay.s: VulkanUIOverlay.cpp.s
 
 # target to generate assembly for a file
 VulkanUIOverlay.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.s
 .PHONY : VulkanUIOverlay.cpp.s
 
 VulkanglTFModel.o: VulkanglTFModel.cpp.o
@@ -303,7 +303,7 @@ VulkanglTFModel.o: VulkanglTFModel.cpp.o
 
 # target to build an object file
 VulkanglTFModel.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanglTFModel.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanglTFModel.cpp.o
 .PHONY : VulkanglTFModel.cpp.o
 
 VulkanglTFModel.i: VulkanglTFModel.cpp.i
@@ -311,7 +311,7 @@ VulkanglTFModel.i: VulkanglTFModel.cpp.i
 
 # target to preprocess a source file
 VulkanglTFModel.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanglTFModel.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanglTFModel.cpp.i
 .PHONY : VulkanglTFModel.cpp.i
 
 VulkanglTFModel.s: VulkanglTFModel.cpp.s
@@ -319,7 +319,7 @@ VulkanglTFModel.s: VulkanglTFModel.cpp.s
 
 # target to generate assembly for a file
 VulkanglTFModel.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanglTFModel.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/VulkanglTFModel.cpp.s
 .PHONY : VulkanglTFModel.cpp.s
 
 __/external/imgui/imgui.o: __/external/imgui/imgui.cpp.o
@@ -327,7 +327,7 @@ __/external/imgui/imgui.o: __/external/imgui/imgui.cpp.o
 
 # target to build an object file
 __/external/imgui/imgui.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui.cpp.o
 .PHONY : __/external/imgui/imgui.cpp.o
 
 __/external/imgui/imgui.i: __/external/imgui/imgui.cpp.i
@@ -335,7 +335,7 @@ __/external/imgui/imgui.i: __/external/imgui/imgui.cpp.i
 
 # target to preprocess a source file
 __/external/imgui/imgui.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui.cpp.i
 .PHONY : __/external/imgui/imgui.cpp.i
 
 __/external/imgui/imgui.s: __/external/imgui/imgui.cpp.s
@@ -343,7 +343,7 @@ __/external/imgui/imgui.s: __/external/imgui/imgui.cpp.s
 
 # target to generate assembly for a file
 __/external/imgui/imgui.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui.cpp.s
 .PHONY : __/external/imgui/imgui.cpp.s
 
 __/external/imgui/imgui_demo.o: __/external/imgui/imgui_demo.cpp.o
@@ -351,7 +351,7 @@ __/external/imgui/imgui_demo.o: __/external/imgui/imgui_demo.cpp.o
 
 # target to build an object file
 __/external/imgui/imgui_demo.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.o
 .PHONY : __/external/imgui/imgui_demo.cpp.o
 
 __/external/imgui/imgui_demo.i: __/external/imgui/imgui_demo.cpp.i
@@ -359,7 +359,7 @@ __/external/imgui/imgui_demo.i: __/external/imgui/imgui_demo.cpp.i
 
 # target to preprocess a source file
 __/external/imgui/imgui_demo.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.i
 .PHONY : __/external/imgui/imgui_demo.cpp.i
 
 __/external/imgui/imgui_demo.s: __/external/imgui/imgui_demo.cpp.s
@@ -367,7 +367,7 @@ __/external/imgui/imgui_demo.s: __/external/imgui/imgui_demo.cpp.s
 
 # target to generate assembly for a file
 __/external/imgui/imgui_demo.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.s
 .PHONY : __/external/imgui/imgui_demo.cpp.s
 
 __/external/imgui/imgui_draw.o: __/external/imgui/imgui_draw.cpp.o
@@ -375,7 +375,7 @@ __/external/imgui/imgui_draw.o: __/external/imgui/imgui_draw.cpp.o
 
 # target to build an object file
 __/external/imgui/imgui_draw.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_draw.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_draw.cpp.o
 .PHONY : __/external/imgui/imgui_draw.cpp.o
 
 __/external/imgui/imgui_draw.i: __/external/imgui/imgui_draw.cpp.i
@@ -383,7 +383,7 @@ __/external/imgui/imgui_draw.i: __/external/imgui/imgui_draw.cpp.i
 
 # target to preprocess a source file
 __/external/imgui/imgui_draw.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_draw.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_draw.cpp.i
 .PHONY : __/external/imgui/imgui_draw.cpp.i
 
 __/external/imgui/imgui_draw.s: __/external/imgui/imgui_draw.cpp.s
@@ -391,7 +391,7 @@ __/external/imgui/imgui_draw.s: __/external/imgui/imgui_draw.cpp.s
 
 # target to generate assembly for a file
 __/external/imgui/imgui_draw.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_draw.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_draw.cpp.s
 .PHONY : __/external/imgui/imgui_draw.cpp.s
 
 __/external/imgui/imgui_widgets.o: __/external/imgui/imgui_widgets.cpp.o
@@ -399,7 +399,7 @@ __/external/imgui/imgui_widgets.o: __/external/imgui/imgui_widgets.cpp.o
 
 # target to build an object file
 __/external/imgui/imgui_widgets.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_widgets.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_widgets.cpp.o
 .PHONY : __/external/imgui/imgui_widgets.cpp.o
 
 __/external/imgui/imgui_widgets.i: __/external/imgui/imgui_widgets.cpp.i
@@ -407,7 +407,7 @@ __/external/imgui/imgui_widgets.i: __/external/imgui/imgui_widgets.cpp.i
 
 # target to preprocess a source file
 __/external/imgui/imgui_widgets.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_widgets.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_widgets.cpp.i
 .PHONY : __/external/imgui/imgui_widgets.cpp.i
 
 __/external/imgui/imgui_widgets.s: __/external/imgui/imgui_widgets.cpp.s
@@ -415,7 +415,7 @@ __/external/imgui/imgui_widgets.s: __/external/imgui/imgui_widgets.cpp.s
 
 # target to generate assembly for a file
 __/external/imgui/imgui_widgets.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_widgets.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/imgui/imgui_widgets.cpp.s
 .PHONY : __/external/imgui/imgui_widgets.cpp.s
 
 __/external/ktx/lib/checkheader.o: __/external/ktx/lib/checkheader.c.o
@@ -423,7 +423,7 @@ __/external/ktx/lib/checkheader.o: __/external/ktx/lib/checkheader.c.o
 
 # target to build an object file
 __/external/ktx/lib/checkheader.c.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.o
 .PHONY : __/external/ktx/lib/checkheader.c.o
 
 __/external/ktx/lib/checkheader.i: __/external/ktx/lib/checkheader.c.i
@@ -431,7 +431,7 @@ __/external/ktx/lib/checkheader.i: __/external/ktx/lib/checkheader.c.i
 
 # target to preprocess a source file
 __/external/ktx/lib/checkheader.c.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.i
 .PHONY : __/external/ktx/lib/checkheader.c.i
 
 __/external/ktx/lib/checkheader.s: __/external/ktx/lib/checkheader.c.s
@@ -439,7 +439,7 @@ __/external/ktx/lib/checkheader.s: __/external/ktx/lib/checkheader.c.s
 
 # target to generate assembly for a file
 __/external/ktx/lib/checkheader.c.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.s
 .PHONY : __/external/ktx/lib/checkheader.c.s
 
 __/external/ktx/lib/filestream.o: __/external/ktx/lib/filestream.c.o
@@ -447,7 +447,7 @@ __/external/ktx/lib/filestream.o: __/external/ktx/lib/filestream.c.o
 
 # target to build an object file
 __/external/ktx/lib/filestream.c.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.o
 .PHONY : __/external/ktx/lib/filestream.c.o
 
 __/external/ktx/lib/filestream.i: __/external/ktx/lib/filestream.c.i
@@ -455,7 +455,7 @@ __/external/ktx/lib/filestream.i: __/external/ktx/lib/filestream.c.i
 
 # target to preprocess a source file
 __/external/ktx/lib/filestream.c.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.i
 .PHONY : __/external/ktx/lib/filestream.c.i
 
 __/external/ktx/lib/filestream.s: __/external/ktx/lib/filestream.c.s
@@ -463,7 +463,7 @@ __/external/ktx/lib/filestream.s: __/external/ktx/lib/filestream.c.s
 
 # target to generate assembly for a file
 __/external/ktx/lib/filestream.c.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/filestream.c.s
 .PHONY : __/external/ktx/lib/filestream.c.s
 
 __/external/ktx/lib/hashlist.o: __/external/ktx/lib/hashlist.c.o
@@ -471,7 +471,7 @@ __/external/ktx/lib/hashlist.o: __/external/ktx/lib/hashlist.c.o
 
 # target to build an object file
 __/external/ktx/lib/hashlist.c.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/hashlist.c.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/hashlist.c.o
 .PHONY : __/external/ktx/lib/hashlist.c.o
 
 __/external/ktx/lib/hashlist.i: __/external/ktx/lib/hashlist.c.i
@@ -479,7 +479,7 @@ __/external/ktx/lib/hashlist.i: __/external/ktx/lib/hashlist.c.i
 
 # target to preprocess a source file
 __/external/ktx/lib/hashlist.c.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/hashlist.c.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/hashlist.c.i
 .PHONY : __/external/ktx/lib/hashlist.c.i
 
 __/external/ktx/lib/hashlist.s: __/external/ktx/lib/hashlist.c.s
@@ -487,7 +487,7 @@ __/external/ktx/lib/hashlist.s: __/external/ktx/lib/hashlist.c.s
 
 # target to generate assembly for a file
 __/external/ktx/lib/hashlist.c.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/hashlist.c.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/hashlist.c.s
 .PHONY : __/external/ktx/lib/hashlist.c.s
 
 __/external/ktx/lib/memstream.o: __/external/ktx/lib/memstream.c.o
@@ -495,7 +495,7 @@ __/external/ktx/lib/memstream.o: __/external/ktx/lib/memstream.c.o
 
 # target to build an object file
 __/external/ktx/lib/memstream.c.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.o
 .PHONY : __/external/ktx/lib/memstream.c.o
 
 __/external/ktx/lib/memstream.i: __/external/ktx/lib/memstream.c.i
@@ -503,7 +503,7 @@ __/external/ktx/lib/memstream.i: __/external/ktx/lib/memstream.c.i
 
 # target to preprocess a source file
 __/external/ktx/lib/memstream.c.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.i
 .PHONY : __/external/ktx/lib/memstream.c.i
 
 __/external/ktx/lib/memstream.s: __/external/ktx/lib/memstream.c.s
@@ -511,7 +511,7 @@ __/external/ktx/lib/memstream.s: __/external/ktx/lib/memstream.c.s
 
 # target to generate assembly for a file
 __/external/ktx/lib/memstream.c.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.s
 .PHONY : __/external/ktx/lib/memstream.c.s
 
 __/external/ktx/lib/swap.o: __/external/ktx/lib/swap.c.o
@@ -519,7 +519,7 @@ __/external/ktx/lib/swap.o: __/external/ktx/lib/swap.c.o
 
 # target to build an object file
 __/external/ktx/lib/swap.c.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.o
 .PHONY : __/external/ktx/lib/swap.c.o
 
 __/external/ktx/lib/swap.i: __/external/ktx/lib/swap.c.i
@@ -527,7 +527,7 @@ __/external/ktx/lib/swap.i: __/external/ktx/lib/swap.c.i
 
 # target to preprocess a source file
 __/external/ktx/lib/swap.c.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.i
 .PHONY : __/external/ktx/lib/swap.c.i
 
 __/external/ktx/lib/swap.s: __/external/ktx/lib/swap.c.s
@@ -535,7 +535,7 @@ __/external/ktx/lib/swap.s: __/external/ktx/lib/swap.c.s
 
 # target to generate assembly for a file
 __/external/ktx/lib/swap.c.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.s
 .PHONY : __/external/ktx/lib/swap.c.s
 
 __/external/ktx/lib/texture.o: __/external/ktx/lib/texture.c.o
@@ -543,7 +543,7 @@ __/external/ktx/lib/texture.o: __/external/ktx/lib/texture.c.o
 
 # target to build an object file
 __/external/ktx/lib/texture.c.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/texture.c.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/texture.c.o
 .PHONY : __/external/ktx/lib/texture.c.o
 
 __/external/ktx/lib/texture.i: __/external/ktx/lib/texture.c.i
@@ -551,7 +551,7 @@ __/external/ktx/lib/texture.i: __/external/ktx/lib/texture.c.i
 
 # target to preprocess a source file
 __/external/ktx/lib/texture.c.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/texture.c.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/texture.c.i
 .PHONY : __/external/ktx/lib/texture.c.i
 
 __/external/ktx/lib/texture.s: __/external/ktx/lib/texture.c.s
@@ -559,7 +559,7 @@ __/external/ktx/lib/texture.s: __/external/ktx/lib/texture.c.s
 
 # target to generate assembly for a file
 __/external/ktx/lib/texture.c.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/texture.c.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/__/external/ktx/lib/texture.c.s
 .PHONY : __/external/ktx/lib/texture.c.s
 
 vulkanexamplebase.o: vulkanexamplebase.cpp.o
@@ -567,7 +567,7 @@ vulkanexamplebase.o: vulkanexamplebase.cpp.o
 
 # target to build an object file
 vulkanexamplebase.cpp.o:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/vulkanexamplebase.cpp.o
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/vulkanexamplebase.cpp.o
 .PHONY : vulkanexamplebase.cpp.o
 
 vulkanexamplebase.i: vulkanexamplebase.cpp.i
@@ -575,7 +575,7 @@ vulkanexamplebase.i: vulkanexamplebase.cpp.i
 
 # target to preprocess a source file
 vulkanexamplebase.cpp.i:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/vulkanexamplebase.cpp.i
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/vulkanexamplebase.cpp.i
 .PHONY : vulkanexamplebase.cpp.i
 
 vulkanexamplebase.s: vulkanexamplebase.cpp.s
@@ -583,7 +583,7 @@ vulkanexamplebase.s: vulkanexamplebase.cpp.s
 
 # target to generate assembly for a file
 vulkanexamplebase.cpp.s:
-	cd /home/nico/MEGAsync/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/vulkanexamplebase.cpp.s
+	cd /home/nico/pbr/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/base.dir/build.make core/CMakeFiles/base.dir/vulkanexamplebase.cpp.s
 .PHONY : vulkanexamplebase.cpp.s
 
 # Help Target
@@ -663,6 +663,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/nico/MEGAsync/pbr/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/nico/pbr/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

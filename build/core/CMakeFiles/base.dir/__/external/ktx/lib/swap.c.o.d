@@ -1,7 +1,6 @@
 core/CMakeFiles/base.dir/__/external/ktx/lib/swap.c.o: \
- /home/nico/MEGAsync/pbr/external/ktx/lib/swap.c \
- /usr/include/stdc-predef.h \
- /home/nico/MEGAsync/pbr/external/ktx/other_include/KHR/khrplatform.h \
+ /home/nico/pbr/external/ktx/lib/swap.c /usr/include/stdc-predef.h \
+ /home/nico/pbr/external/ktx/other_include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

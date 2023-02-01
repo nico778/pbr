@@ -1,8 +1,7 @@
 core/CMakeFiles/base.dir/VulkanSwapChain.cpp.o: \
- /home/nico/MEGAsync/pbr/core/VulkanSwapChain.cpp \
- /usr/include/stdc-predef.h \
- /home/nico/MEGAsync/pbr/core/VulkanSwapChain.h \
- /usr/include/c++/11/stdlib.h /usr/include/c++/11/cstdlib \
+ /home/nico/pbr/core/VulkanSwapChain.cpp /usr/include/stdc-predef.h \
+ /home/nico/pbr/core/VulkanSwapChain.h /usr/include/c++/11/stdlib.h \
+ /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -132,18 +131,17 @@ core/CMakeFiles/base.dir/VulkanSwapChain.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/nico/MEGAsync/pbr/external/vulkan/vulkan.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vk_platform.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vulkan_core.h \
- /usr/include/xcb/xcb.h /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /home/nico/pbr/external/vulkan/vulkan.h \
+ /home/nico/pbr/external/vulkan/vk_platform.h \
+ /home/nico/pbr/external/vulkan/vulkan_core.h /usr/include/xcb/xcb.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio-ext.h /usr/include/xcb/xproto.h \
- /usr/include/xcb/xcb.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vulkan_xcb.h \
- /home/nico/MEGAsync/pbr/core/VulkanTools.h \
- /home/nico/MEGAsync/pbr/core/VulkanInitializers.hpp \
- /usr/include/c++/11/math.h /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/xcb/xcb.h /home/nico/pbr/external/vulkan/vulkan_xcb.h \
+ /home/nico/pbr/core/VulkanTools.h \
+ /home/nico/pbr/core/VulkanInitializers.hpp /usr/include/c++/11/math.h \
+ /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \

@@ -7,20 +7,21 @@
 #define OBJ_DIM 0.05f
 
 struct Material {
-	//parameter block used as push constant block
-	struct PushBlock {
+	struct VulkanPC {
 		float roughness;
 		float metallic;
-		float r, g, b;
-	} params;
-	std::string name;
+		float r;
+		float g;
+		float b;
+	} props;
+	std::string title;
 	Material() {};
-	Material(std::string n, glm::vec3 c, float r, float m) : name(n) {
-		params.roughness = r;
-		params.metallic = m;
-		params.r = c.r;
-		params.g = c.g;
-		params.b = c.b;
+	Material(std::string t, glm::vec3 colour, float r, float m) : title(t) {
+		props.roughness = r;
+		props.metallic = m;
+		props.r = colour.r;
+		props.g = colour.g;
+		props.b = colour.b;
 	};
 };
 
@@ -28,28 +29,28 @@ class VulkanExample : public VulkanExampleBase
 {
 public:
 	struct Meshes {
-		std::vector<vkglTF::Model> objects;
-		int32_t objectIndex = 0;
-	} models;
+		std::vector<vkglTF::Model> artefacts;
+		int32_t artefactID = 0;
+	} meshes;
 
 	struct {
-		vks::Buffer object;
-		vks::Buffer params;
-	} uniformBuffers;
+		vks::Buffer artefact;
+		vks::Buffer props;
+	} uniBufs;
 
-	struct UBOMatrices {
-		glm::mat4 projection;
-		glm::mat4 model;
+	struct UBMs {
+		glm::mat4 mapping;
+		glm::mat4 mesh;
 		glm::mat4 view;
-		glm::vec3 camPos;
-	} uboMatrices;
+		glm::vec3 camera;
+	} ub_Ms;
 
-	struct UBOParams {
-		glm::vec4 lights[4];
-	} uboParams;
+	struct UB_Props {
+		glm::vec4 lightSource[4];
+	} ub_Props;
 
-	VkPipelineLayout pipelineLayout;
-	VkPipeline pipeline;
+	VkPipelineLayout pl_Layout;
+	VkPipeline pl;
 	VkDescriptorSetLayout descriptorSetLayout;
 	VkDescriptorSet descriptorSet;
 
@@ -62,7 +63,7 @@ public:
 
 	VulkanExample() : VulkanExampleBase(ENABLE_VALIDATION)
 	{
-		title = "Physical based shading basics";
+		title = "Physically Based Rendering";
 		camera.type = Camera::CameraType::firstperson;
 		camera.setPosition(glm::vec3(10.0f, 13.0f, 1.8f));
 		camera.setRotation(glm::vec3(-62.5f, 90.0f, 0.0f));
@@ -80,14 +81,9 @@ public:
 		materials.push_back(Material("Titanium", glm::vec3(0.541931f, 0.496791f, 0.449419f), 0.1f, 1.0f));
 		materials.push_back(Material("Cobalt", glm::vec3(0.662124f, 0.654864f, 0.633732f), 0.1f, 1.0f));
 		materials.push_back(Material("Platinum", glm::vec3(0.672411f, 0.637331f, 0.585456f), 0.1f, 1.0f));
-		//testing materials
-		materials.push_back(Material("White", glm::vec3(1.0f), 0.1f, 1.0f));
-		materials.push_back(Material("Red", glm::vec3(1.0f, 0.0f, 0.0f), 0.1f, 1.0f));
-		materials.push_back(Material("Blue", glm::vec3(0.0f, 0.0f, 1.0f), 0.1f, 1.0f));
-		materials.push_back(Material("Black", glm::vec3(0.0f), 0.1f, 1.0f));
 
 		for (auto material : materials) {
-			materialNames.push_back(material.name);
+			materialNames.push_back(material.title);
 		}
 		objectNames = { "Sphere", "Teapot", "Torusknot", "Deer" };
 
@@ -96,13 +92,13 @@ public:
 
 	~VulkanExample()
 	{
-		vkDestroyPipeline(device, pipeline, nullptr);
+		vkDestroyPipeline(device, pl, nullptr);
 
-		vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
+		vkDestroyPipelineLayout(device, pl_Layout, nullptr);
 		vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
 
-		uniformBuffers.object.destroy();
-		uniformBuffers.params.destroy();
+		uniBufs.artefact.destroy();
+		uniBufs.props.destroy();
 	}
 
 	void buildCommandBuffers()
@@ -138,35 +134,23 @@ public:
 			vkCmdSetScissor(drawCmdBuffers[i], 0, 1, &scissor);
 
 			//objects
-			vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline);
-			vkCmdBindDescriptorSets(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pipelineLayout, 0, 1, &descriptorSet, 0, NULL);
+			vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl);
+			vkCmdBindDescriptorSets(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl_Layout, 0, 1, &descriptorSet, 0, NULL);
 
 			Material mat = materials[materialIndex];
 
-//#define SINGLE_ROW 1
-#ifdef SINGLE_ROW
-			mat.params.metallic = 1.0;
-
-			uint32_t objcount = 10;
-			for (uint32_t x = 0; x < objcount; x++) {
-				glm::vec3 pos = glm::vec3(float(x - (objcount / 2.0f)) * 2.5f, 0.0f, 0.0f);
-				mat.params.roughness = glm::clamp((float)x / (float)objcount, 0.005f, 1.0f);
-				vkCmdPushConstants(drawCmdBuffers[i], pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::vec3), &pos);
-				vkCmdPushConstants(drawCmdBuffers[i], pipelineLayout, VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(glm::vec3), sizeof(Material::PushBlock), &mat);
-				models.objects[models.objectIndex].draw(drawCmdBuffers[i]);
-			}
-#else
+			//draw materials
 			for (uint32_t y = 0; y < GRID_DIM; y++) {
 				for (uint32_t x = 0; x < GRID_DIM; x++) {
 					glm::vec3 pos = glm::vec3(float(x - (GRID_DIM / 2.0f)) * 2.5f, 0.0f, float(y - (GRID_DIM / 2.0f)) * 2.5f);
-					vkCmdPushConstants(drawCmdBuffers[i], pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::vec3), &pos);
-					mat.params.metallic = glm::clamp((float)x / (float)(GRID_DIM - 1), 0.1f, 1.0f);
-					mat.params.roughness = glm::clamp((float)y / (float)(GRID_DIM - 1), 0.05f, 1.0f);
-					vkCmdPushConstants(drawCmdBuffers[i], pipelineLayout, VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(glm::vec3), sizeof(Material::PushBlock), &mat);
-					models.objects[models.objectIndex].draw(drawCmdBuffers[i]);
+					vkCmdPushConstants(drawCmdBuffers[i], pl_Layout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::vec3), &pos);
+					mat.props.metallic = glm::clamp((float)x / (float)(GRID_DIM - 1), 0.1f, 1.0f);
+					mat.props.roughness = glm::clamp((float)y / (float)(GRID_DIM - 1), 0.05f, 1.0f);
+					vkCmdPushConstants(drawCmdBuffers[i], pl_Layout, VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(glm::vec3), sizeof(Material::VulkanPC), &mat);
+					meshes.artefacts[meshes.artefactID].draw(drawCmdBuffers[i]);
 				}
 			}
-#endif
+
 			drawUI(drawCmdBuffers[i]);
 
 			vkCmdEndRenderPass(drawCmdBuffers[i]);
@@ -178,9 +162,9 @@ public:
 	void loadAssets()
 	{
 		std::vector<std::string> filenames = { "sphere.gltf", "teapot.gltf", "torusknot.gltf", "deer.gltf" };
-		models.objects.resize(filenames.size());
+		meshes.artefacts.resize(filenames.size());
 		for (size_t i = 0; i < filenames.size(); i++) {			
-			models.objects[i].loadFromFile(getAssetPath() + "models/" + filenames[i], vulkanDevice, queue, vkglTF::FileLoadingFlags::PreTransformVertices | vkglTF::FileLoadingFlags::FlipY);
+			meshes.artefacts[i].loadFromFile(getAssetPath() + "models/" + filenames[i], vulkanDevice, queue, vkglTF::FileLoadingFlags::PreTransformVertices | vkglTF::FileLoadingFlags::FlipY);
 		}
 	}
 
@@ -201,13 +185,13 @@ public:
 
 		std::vector<VkPushConstantRange> pushConstantRanges = {
 			vks::initializers::pushConstantRange(VK_SHADER_STAGE_VERTEX_BIT, sizeof(glm::vec3), 0),
-			vks::initializers::pushConstantRange(VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(Material::PushBlock), sizeof(glm::vec3)),
+			vks::initializers::pushConstantRange(VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(Material::VulkanPC), sizeof(glm::vec3)),
 		};
 
 		pipelineLayoutCreateInfo.pushConstantRangeCount = 2;
 		pipelineLayoutCreateInfo.pPushConstantRanges = pushConstantRanges.data();
 
-		VK_CHECK_RESULT(vkCreatePipelineLayout(device, &pipelineLayoutCreateInfo, nullptr, &pipelineLayout));
+		VK_CHECK_RESULT(vkCreatePipelineLayout(device, &pipelineLayoutCreateInfo, nullptr, &pl_Layout));
 	}
 
 	void setupDescriptorSets()
@@ -231,8 +215,8 @@ public:
 		VK_CHECK_RESULT(vkAllocateDescriptorSets(device, &allocInfo, &descriptorSet));
 
 		std::vector<VkWriteDescriptorSet> writeDescriptorSets = {
-			vks::initializers::writeDescriptorSet(descriptorSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 0, &uniformBuffers.object.descriptor),
-			vks::initializers::writeDescriptorSet(descriptorSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, &uniformBuffers.params.descriptor),
+			vks::initializers::writeDescriptorSet(descriptorSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 0, &uniBufs.artefact.descriptor),
+			vks::initializers::writeDescriptorSet(descriptorSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, &uniBufs.props.descriptor),
 		};
 		vkUpdateDescriptorSets(device, static_cast<uint32_t>(writeDescriptorSets.size()), writeDescriptorSets.data(), 0, NULL);
 	}
@@ -248,7 +232,7 @@ public:
 		VkPipelineMultisampleStateCreateInfo multisampleState = vks::initializers::pipelineMultisampleStateCreateInfo(VK_SAMPLE_COUNT_1_BIT);
 		std::vector<VkDynamicState> dynamicStateEnables = { VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR };
 		VkPipelineDynamicStateCreateInfo dynamicState = vks::initializers::pipelineDynamicStateCreateInfo(dynamicStateEnables);
-		VkGraphicsPipelineCreateInfo pipelineCI = vks::initializers::pipelineCreateInfo(pipelineLayout, renderPass);
+		VkGraphicsPipelineCreateInfo pipelineCI = vks::initializers::pipelineCreateInfo(pl_Layout, renderPass);
 
 		std::array<VkPipelineShaderStageCreateInfo, 2> shaderStages;
 		pipelineCI.pInputAssemblyState = &inputAssemblyState;
@@ -268,7 +252,7 @@ public:
 		// Enable depth test and write
 		depthStencilState.depthWriteEnable = VK_TRUE;
 		depthStencilState.depthTestEnable = VK_TRUE;
-		VK_CHECK_RESULT(vkCreateGraphicsPipelines(device, pipelineCache, 1, &pipelineCI, nullptr, &pipeline));
+		VK_CHECK_RESULT(vkCreateGraphicsPipelines(device, pipelineCache, 1, &pipelineCI, nullptr, &pl));
 	}
 
 	// Prepare and initialize uniform buffer containing shader uniforms
@@ -278,19 +262,19 @@ public:
 		VK_CHECK_RESULT(vulkanDevice->createBuffer(
 			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
 			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-			&uniformBuffers.object,
-			sizeof(uboMatrices)));
+			&uniBufs.artefact,
+			sizeof(ub_Ms)));
 
 		// Shared parameter uniform buffer
 		VK_CHECK_RESULT(vulkanDevice->createBuffer(
 			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
 			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-			&uniformBuffers.params,
-			sizeof(uboParams)));
+			&uniBufs.props,
+			sizeof(ub_Props)));
 
 		// Map persistent
-		VK_CHECK_RESULT(uniformBuffers.object.map());
-		VK_CHECK_RESULT(uniformBuffers.params.map());
+		VK_CHECK_RESULT(uniBufs.artefact.map());
+		VK_CHECK_RESULT(uniBufs.props.map());
 
 		updateUniformBuffers();
 		updateLights();
@@ -299,30 +283,30 @@ public:
 	void updateUniformBuffers()
 	{
 		// 3D object
-		uboMatrices.projection = camera.matrices.perspective;
-		uboMatrices.view = camera.matrices.view;
-		uboMatrices.model = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f + (models.objectIndex == 1 ? 45.0f : 0.0f)), glm::vec3(0.0f, 1.0f, 0.0f));
-		uboMatrices.camPos = camera.position * -1.0f;
-		memcpy(uniformBuffers.object.mapped, &uboMatrices, sizeof(uboMatrices));
+		ub_Ms.mapping = camera.matrices.perspective;
+		ub_Ms.view = camera.matrices.view;
+		ub_Ms.mesh = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f + (meshes.artefactID == 1 ? 45.0f : 0.0f)), glm::vec3(0.0f, 1.0f, 0.0f));
+		ub_Ms.camera = camera.position * -1.0f;
+		memcpy(uniBufs.artefact.mapped, &ub_Ms, sizeof(ub_Ms));
 	}
 
 	void updateLights()
 	{
 		const float p = 15.0f;
-		uboParams.lights[0] = glm::vec4(-p, -p*0.5f, -p, 1.0f);
-		uboParams.lights[1] = glm::vec4(-p, -p*0.5f,  p, 1.0f);
-		uboParams.lights[2] = glm::vec4( p, -p*0.5f,  p, 1.0f);
-		uboParams.lights[3] = glm::vec4( p, -p*0.5f, -p, 1.0f);
+		ub_Props.lightSource[0] = glm::vec4(-p, -p*0.5f, -p, 1.0f);
+		ub_Props.lightSource[1] = glm::vec4(-p, -p*0.5f,  p, 1.0f);
+		ub_Props.lightSource[2] = glm::vec4( p, -p*0.5f,  p, 1.0f);
+		ub_Props.lightSource[3] = glm::vec4( p, -p*0.5f, -p, 1.0f);
 
 		if (!paused)
 		{
-			uboParams.lights[0].x = sin(glm::radians(timer * 360.0f)) * 20.0f;
-			uboParams.lights[0].z = cos(glm::radians(timer * 360.0f)) * 20.0f;
-			uboParams.lights[1].x = cos(glm::radians(timer * 360.0f)) * 20.0f;
-			uboParams.lights[1].y = sin(glm::radians(timer * 360.0f)) * 20.0f;
+			ub_Props.lightSource[0].x = sin(glm::radians(timer * 360.0f)) * 20.0f;
+			ub_Props.lightSource[0].z = cos(glm::radians(timer * 360.0f)) * 20.0f;
+			ub_Props.lightSource[1].x = cos(glm::radians(timer * 360.0f)) * 20.0f;
+			ub_Props.lightSource[1].y = sin(glm::radians(timer * 360.0f)) * 20.0f;
 		}
 
-		memcpy(uniformBuffers.params.mapped, &uboParams, sizeof(uboParams));
+		memcpy(uniBufs.props.mapped, &ub_Props, sizeof(ub_Props));
 	}
 
 	void draw()
@@ -368,7 +352,7 @@ public:
 			if (overlay->comboBox("Material", &materialIndex, materialNames)) {
 				buildCommandBuffers();
 			}
-			if (overlay->comboBox("Object type", &models.objectIndex, objectNames)) {
+			if (overlay->comboBox("Object type", &meshes.artefactID, objectNames)) {
 				updateUniformBuffers();
 				buildCommandBuffers();
 			}

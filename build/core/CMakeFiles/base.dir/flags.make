@@ -3,15 +3,15 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_DEFINES = -DVK_EXAMPLE_DATA_DIR=\"/home/nico/MEGAsync/pbr/data/\" -D_CRT_SECURE_NO_WARNINGS
+C_DEFINES = -DVK_EXAMPLE_DATA_DIR=\"/home/nico/pbr/data/\" -D_CRT_SECURE_NO_WARNINGS
 
-C_INCLUDES = -I/home/nico/MEGAsync/pbr/external -I/home/nico/MEGAsync/pbr/external/glm -I/home/nico/MEGAsync/pbr/external/gli -I/home/nico/MEGAsync/pbr/external/imgui -I/home/nico/MEGAsync/pbr/external/tinygltf -I/home/nico/MEGAsync/pbr/external/ktx/include -I/home/nico/MEGAsync/pbr/external/ktx/other_include -I/home/nico/MEGAsync/pbr/core
+C_INCLUDES = -I/home/nico/pbr/external -I/home/nico/pbr/external/glm -I/home/nico/pbr/external/gli -I/home/nico/pbr/external/imgui -I/home/nico/pbr/external/tinygltf -I/home/nico/pbr/external/ktx/include -I/home/nico/pbr/external/ktx/other_include -I/home/nico/pbr/core
 
 C_FLAGS = 
 
-CXX_DEFINES = -DVK_EXAMPLE_DATA_DIR=\"/home/nico/MEGAsync/pbr/data/\" -D_CRT_SECURE_NO_WARNINGS
+CXX_DEFINES = -DVK_EXAMPLE_DATA_DIR=\"/home/nico/pbr/data/\" -D_CRT_SECURE_NO_WARNINGS
 
-CXX_INCLUDES = -I/home/nico/MEGAsync/pbr/external -I/home/nico/MEGAsync/pbr/external/glm -I/home/nico/MEGAsync/pbr/external/gli -I/home/nico/MEGAsync/pbr/external/imgui -I/home/nico/MEGAsync/pbr/external/tinygltf -I/home/nico/MEGAsync/pbr/external/ktx/include -I/home/nico/MEGAsync/pbr/external/ktx/other_include -I/home/nico/MEGAsync/pbr/core
+CXX_INCLUDES = -I/home/nico/pbr/external -I/home/nico/pbr/external/glm -I/home/nico/pbr/external/gli -I/home/nico/pbr/external/imgui -I/home/nico/pbr/external/tinygltf -I/home/nico/pbr/external/ktx/include -I/home/nico/pbr/external/ktx/other_include -I/home/nico/pbr/core
 
 CXX_FLAGS =  -DVK_USE_PLATFORM_XCB_KHR -DNOMINMAX -D_USE_MATH_DEFINES -std=gnu++11
 

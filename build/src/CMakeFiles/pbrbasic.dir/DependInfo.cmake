@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/nico/MEGAsync/pbr/src/pbrbasic/pbrbasic.cpp" "src/CMakeFiles/pbrbasic.dir/pbrbasic/pbrbasic.cpp.o" "gcc" "src/CMakeFiles/pbrbasic.dir/pbrbasic/pbrbasic.cpp.o.d"
+  "/home/nico/pbr/src/pbrbasic/pbrbasic.cpp" "src/CMakeFiles/pbrbasic.dir/pbrbasic/pbrbasic.cpp.o" "gcc" "src/CMakeFiles/pbrbasic.dir/pbrbasic/pbrbasic.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/nico/MEGAsync/pbr/build/core/CMakeFiles/base.dir/DependInfo.cmake"
+  "/home/nico/pbr/build/core/CMakeFiles/base.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

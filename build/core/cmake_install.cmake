@@ -1,4 +1,4 @@
-# Install script for directory: /home/nico/MEGAsync/pbr/core
+# Install script for directory: /home/nico/pbr/core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

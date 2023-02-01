@@ -1,7 +1,6 @@
 core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o: \
- /home/nico/MEGAsync/pbr/core/VulkanUIOverlay.cpp \
- /usr/include/stdc-predef.h \
- /home/nico/MEGAsync/pbr/core/VulkanUIOverlay.h /usr/include/stdio.h \
+ /home/nico/pbr/core/VulkanUIOverlay.cpp /usr/include/stdc-predef.h \
+ /home/nico/pbr/core/VulkanUIOverlay.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -163,18 +162,17 @@ core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o: \
  /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/tuple \
  /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vulkan.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vk_platform.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vulkan_core.h \
- /usr/include/xcb/xcb.h /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /home/nico/pbr/external/vulkan/vulkan.h \
+ /home/nico/pbr/external/vulkan/vk_platform.h \
+ /home/nico/pbr/external/vulkan/vulkan_core.h /usr/include/xcb/xcb.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio-ext.h /usr/include/xcb/xproto.h \
- /usr/include/xcb/xcb.h \
- /home/nico/MEGAsync/pbr/external/vulkan/vulkan_xcb.h \
- /home/nico/MEGAsync/pbr/core/VulkanTools.h \
- /home/nico/MEGAsync/pbr/core/VulkanInitializers.hpp \
- /usr/include/c++/11/math.h /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/xcb/xcb.h /home/nico/pbr/external/vulkan/vulkan_xcb.h \
+ /home/nico/pbr/core/VulkanTools.h \
+ /home/nico/pbr/core/VulkanInitializers.hpp /usr/include/c++/11/math.h \
+ /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
@@ -193,12 +191,12 @@ core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o: \
  /usr/include/c++/11/bits/stl_heap.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/uniform_int_dist.h \
- /home/nico/MEGAsync/pbr/core/VulkanDebug.h \
- /home/nico/MEGAsync/pbr/external/glm/glm/glm.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/_fixes.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/setup.hpp \
+ /home/nico/pbr/core/VulkanDebug.h \
+ /home/nico/pbr/external/glm/glm/glm.hpp \
+ /home/nico/pbr/external/glm/glm/detail/_fixes.hpp \
+ /home/nico/pbr/external/glm/glm/detail/setup.hpp \
  /usr/include/c++/11/cassert /usr/include/c++/11/cstddef \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../simd/platform.h \
+ /home/nico/pbr/external/glm/glm/detail/../simd/platform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h \
@@ -213,75 +211,74 @@ core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/c++/11/cfloat \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
- /usr/include/c++/11/limits \
- /home/nico/MEGAsync/pbr/external/glm/glm/fwd.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_int.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/setup.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_float.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/precision.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_mat.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/vec2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec2.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/vec3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec3.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/vec4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec4.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_vec4_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/mat2x2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_mat2x2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_mat2x2.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_matrix.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/setup.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat2x3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/setup.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat2x3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat2x3.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat2x4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat2x4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat2x4.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat3x2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat3x2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat3x2.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat3x3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat3x3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat3x3.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat3x4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat3x4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat3x4.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat4x2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x2.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x2.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat4x3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x3.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x3.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../mat4x4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x4.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x4.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_mat4x4_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_matrix.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../geometric.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_geometric.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_geometric.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_exponential.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_vec1.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/type_vec1.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_exponential.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_vector_relational.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/setup.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_vector_relational.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_vector_relational_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/_vectorize.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_exponential_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/../simd/exponential.h \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_common.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/_fixes.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_common.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_common_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/../simd/common.h \
+ /usr/include/c++/11/limits /home/nico/pbr/external/glm/glm/fwd.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_int.hpp \
+ /home/nico/pbr/external/glm/glm/detail/setup.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_float.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec.hpp \
+ /home/nico/pbr/external/glm/glm/detail/precision.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_mat.hpp \
+ /home/nico/pbr/external/glm/glm/vec2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec2.inl \
+ /home/nico/pbr/external/glm/glm/vec3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec3.inl \
+ /home/nico/pbr/external/glm/glm/vec4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_vec4.inl \
+ /home/nico/pbr/external/glm/glm/detail/type_vec4_simd.inl \
+ /home/nico/pbr/external/glm/glm/mat2x2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_mat2x2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_mat2x2.inl \
+ /home/nico/pbr/external/glm/glm/detail/func_matrix.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/setup.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../mat2x3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/setup.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat2x3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat2x3.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat2x4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat2x4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat2x4.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat3x2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat3x2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat3x2.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat3x3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat3x3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat3x3.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat3x4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat3x4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat3x4.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat4x2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x2.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x2.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat4x3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x3.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x3.inl \
+ /home/nico/pbr/external/glm/glm/detail/../mat4x4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x4.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x4.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_mat4x4_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/func_matrix.inl \
+ /home/nico/pbr/external/glm/glm/detail/../geometric.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_geometric.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_geometric.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_exponential.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_vec1.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/type_vec1.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_exponential.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_vector_relational.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/setup.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_vector_relational.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_vector_relational_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/_vectorize.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_exponential_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/../simd/exponential.h \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_common.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/_fixes.hpp \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_common.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_common_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/../simd/common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/immintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/ia32intrin.h \
@@ -362,30 +359,29 @@ core/CMakeFiles/base.dir/VulkanUIOverlay.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/amxbf16intrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/prfchwintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/keylockerintrin.h \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/func_geometric_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../detail/../simd/geometric.h \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_matrix_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../simd/matrix.h \
- /home/nico/MEGAsync/pbr/external/glm/glm/trigonometric.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_trigonometric.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_trigonometric.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_trigonometric_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/exponential.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/common.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/packing.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_packing.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_packing.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_half.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/type_half.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_packing_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/matrix.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/vector_relational.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/integer.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_integer.hpp \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_integer.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/func_integer_simd.inl \
- /home/nico/MEGAsync/pbr/external/glm/glm/detail/../simd/integer.h \
- /home/nico/MEGAsync/pbr/core/VulkanBuffer.h \
- /home/nico/MEGAsync/pbr/core/VulkanDevice.h \
- /home/nico/MEGAsync/pbr/core/../external/imgui/imgui.h \
- /home/nico/MEGAsync/pbr/core/../external/imgui/imconfig.h
+ /home/nico/pbr/external/glm/glm/detail/../detail/func_geometric_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/../detail/../simd/geometric.h \
+ /home/nico/pbr/external/glm/glm/detail/func_matrix_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/../simd/matrix.h \
+ /home/nico/pbr/external/glm/glm/trigonometric.hpp \
+ /home/nico/pbr/external/glm/glm/detail/func_trigonometric.hpp \
+ /home/nico/pbr/external/glm/glm/detail/func_trigonometric.inl \
+ /home/nico/pbr/external/glm/glm/detail/func_trigonometric_simd.inl \
+ /home/nico/pbr/external/glm/glm/exponential.hpp \
+ /home/nico/pbr/external/glm/glm/common.hpp \
+ /home/nico/pbr/external/glm/glm/packing.hpp \
+ /home/nico/pbr/external/glm/glm/detail/func_packing.hpp \
+ /home/nico/pbr/external/glm/glm/detail/func_packing.inl \
+ /home/nico/pbr/external/glm/glm/detail/type_half.hpp \
+ /home/nico/pbr/external/glm/glm/detail/type_half.inl \
+ /home/nico/pbr/external/glm/glm/detail/func_packing_simd.inl \
+ /home/nico/pbr/external/glm/glm/matrix.hpp \
+ /home/nico/pbr/external/glm/glm/vector_relational.hpp \
+ /home/nico/pbr/external/glm/glm/integer.hpp \
+ /home/nico/pbr/external/glm/glm/detail/func_integer.hpp \
+ /home/nico/pbr/external/glm/glm/detail/func_integer.inl \
+ /home/nico/pbr/external/glm/glm/detail/func_integer_simd.inl \
+ /home/nico/pbr/external/glm/glm/detail/../simd/integer.h \
+ /home/nico/pbr/core/VulkanBuffer.h /home/nico/pbr/core/VulkanDevice.h \
+ /home/nico/pbr/core/../external/imgui/imgui.h \
+ /home/nico/pbr/core/../external/imgui/imconfig.h

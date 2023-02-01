@@ -1,4 +1,4 @@
-# Install script for directory: /home/nico/MEGAsync/pbr
+# Install script for directory: /home/nico/pbr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,8 +44,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/nico/MEGAsync/pbr/build/core/cmake_install.cmake")
-  include("/home/nico/MEGAsync/pbr/build/src/cmake_install.cmake")
+  include("/home/nico/pbr/build/core/cmake_install.cmake")
+  include("/home/nico/pbr/build/src/cmake_install.cmake")
 
 endif()
 
@@ -57,5 +57,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nico/MEGAsync/pbr/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nico/pbr/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

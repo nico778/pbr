@@ -1,6 +1,6 @@
 core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.o: \
- /home/nico/MEGAsync/pbr/external/ktx/lib/memstream.c \
- /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
+ /home/nico/pbr/external/ktx/lib/memstream.c /usr/include/stdc-predef.h \
+ /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -43,7 +43,7 @@ core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/nico/MEGAsync/pbr/external/ktx/include/ktx.h /usr/include/stdio.h \
+ /home/nico/pbr/external/ktx/include/ktx.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -56,6 +56,6 @@ core/CMakeFiles/base.dir/__/external/ktx/lib/memstream.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/ktxint.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/memstream.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/stream.h
+ /home/nico/pbr/external/ktx/lib/ktxint.h \
+ /home/nico/pbr/external/ktx/lib/memstream.h \
+ /home/nico/pbr/external/ktx/lib/stream.h

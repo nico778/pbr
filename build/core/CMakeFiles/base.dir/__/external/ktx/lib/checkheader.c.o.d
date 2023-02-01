@@ -1,6 +1,6 @@
 core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.o: \
- /home/nico/MEGAsync/pbr/external/ktx/lib/checkheader.c \
- /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
+ /home/nico/pbr/external/ktx/lib/checkheader.c /usr/include/stdc-predef.h \
+ /usr/include/assert.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -12,9 +12,8 @@ core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h \
- /home/nico/MEGAsync/pbr/external/ktx/include/ktx.h /usr/include/stdio.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/strings.h /home/nico/pbr/external/ktx/include/ktx.h \
+ /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -32,4 +31,4 @@ core/CMakeFiles/base.dir/__/external/ktx/lib/checkheader.c.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/nico/MEGAsync/pbr/external/ktx/lib/ktxint.h
+ /home/nico/pbr/external/ktx/lib/ktxint.h

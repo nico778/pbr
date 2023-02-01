@@ -1,8 +1,7 @@
 core/CMakeFiles/base.dir/__/external/imgui/imgui_demo.cpp.o: \
- /home/nico/MEGAsync/pbr/external/imgui/imgui_demo.cpp \
- /usr/include/stdc-predef.h \
- /home/nico/MEGAsync/pbr/external/imgui/imgui.h \
- /home/nico/MEGAsync/pbr/external/imgui/imconfig.h \
+ /home/nico/pbr/external/imgui/imgui_demo.cpp /usr/include/stdc-predef.h \
+ /home/nico/pbr/external/imgui/imgui.h \
+ /home/nico/pbr/external/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h /usr/include/string.h \

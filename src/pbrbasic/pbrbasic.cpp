@@ -1,4 +1,4 @@
-#include "vulkanexamplebase.h"
+#include "vulkancore.h"
 #include "VulkanglTFModel.h"
 
 #define VERTEX_BUFFER_BIND_ID 0
@@ -61,31 +61,31 @@ public:
 	std::vector<std::string> material_Title;
 	std::vector<std::string> mesh_Title;
 
-	VulkanExample() : VulkanExampleBase(ENABLE_VALIDATION)
+	VulkanExample() : VulkanExampleBase()
 	{
 		title = "Physically Based Rendering";
 		camera.type = Camera::CameraType::firstperson;
-		camera.setPosition(glm::vec3(10.0f, 13.0f, 1.8f));
-		camera.setRotation(glm::vec3(-62.5f, 90.0f, 0.0f));
-		camera.movementSpeed = 4.0f;
+		camera.setPosition(glm::vec3(10.0f, 15.0f, 1.0f));
+		camera.setRotation(glm::vec3(-60.0f, 90.0f, 0.0f));
+		camera.movementSpeed = 5.0f;
 		camera.setPerspective(60.0f, (float)width / (float)height, 0.1f, 256.0f);
-		camera.rotationSpeed = 0.25f;
+		camera.rotationSpeed = 0.3f;
 		paused = true;
-		timerSpeed *= 0.25f;
+		timerSpeed *= 0.3f;
 
 		//setup some default materials (source: https://seblagarde.wordpress.com/2011/08/17/feeding-a-physical-based-lighting-mode/)
-		materials.push_back(Material("Gold", glm::vec3(1.0f, 0.765557f, 0.336057f), 0.1f, 1.0f));
-		materials.push_back(Material("Copper", glm::vec3(0.955008f, 0.637427f, 0.538163f), 0.1f, 1.0f));
-		materials.push_back(Material("Chromium", glm::vec3(0.549585f, 0.556114f, 0.554256f), 0.1f, 1.0f));
-		materials.push_back(Material("Nickel", glm::vec3(0.659777f, 0.608679f, 0.525649f), 0.1f, 1.0f));
-		materials.push_back(Material("Titanium", glm::vec3(0.541931f, 0.496791f, 0.449419f), 0.1f, 1.0f));
-		materials.push_back(Material("Cobalt", glm::vec3(0.662124f, 0.654864f, 0.633732f), 0.1f, 1.0f));
-		materials.push_back(Material("Platinum", glm::vec3(0.672411f, 0.637331f, 0.585456f), 0.1f, 1.0f));
+		//https://computergraphics.stackexchange.com/questions/4110/should-ideal-specular-multiply-light-colour-with-material-colour
+		materials.push_back(Material("Iron", glm::vec3(0.56f, 0.57f, 0.58f), 0.1f, 1.0f));
+		materials.push_back(Material("Copper", glm::vec3(0.95f, 0.64f, 0.54f), 0.1f, 1.0f));
+		materials.push_back(Material("Gold", glm::vec3(1.0f, 0.71f, 0.29f), 0.1f, 1.0f));
+		materials.push_back(Material("Aluminium", glm::vec3(0.91f, 0.92f, 0.92f), 0.1f, 1.0f));
+		materials.push_back(Material("Silver", glm::vec3(0.95f, 0.93f, 0.88f), 0.1f, 1.0f));
+		materials.push_back(Material("Chromium", glm::vec3(0.55f, 0.55f, 0.55f), 0.1f, 1.0f));
 
 		for (auto material : materials) {
 			material_Title.push_back(material.title);
 		}
-		mesh_Title = { "Sphere", "Teapot", "Torusknot", "Deer" };
+		mesh_Title = { "Sphere", "Teapot", "Suzanne", "Deer" };
 
 		material_ID = 0;
 	}
@@ -161,7 +161,7 @@ public:
 
 	void loadAssets()
 	{
-		std::vector<std::string> filenames = { "sphere.gltf", "teapot.gltf", "torusknot.gltf", "deer.gltf" };
+		std::vector<std::string> filenames = { "sphere.gltf", "teapot.gltf", "suzanne.gltf", "deer.gltf" };
 		meshes.artefacts.resize(filenames.size());
 		for (size_t i = 0; i < filenames.size(); i++) {			
 			meshes.artefacts[i].loadFromFile(getAssetPath() + "models/" + filenames[i], vulkanDevice, queue, vkglTF::FileLoadingFlags::PreTransformVertices | vkglTF::FileLoadingFlags::FlipY);

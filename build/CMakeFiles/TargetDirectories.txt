@@ -1,8 +1,0 @@
-/home/nico/pbr/build/CMakeFiles/edit_cache.dir
-/home/nico/pbr/build/CMakeFiles/rebuild_cache.dir
-/home/nico/pbr/build/core/CMakeFiles/base.dir
-/home/nico/pbr/build/core/CMakeFiles/edit_cache.dir
-/home/nico/pbr/build/core/CMakeFiles/rebuild_cache.dir
-/home/nico/pbr/build/src/CMakeFiles/pbrbasic.dir
-/home/nico/pbr/build/src/CMakeFiles/edit_cache.dir
-/home/nico/pbr/build/src/CMakeFiles/rebuild_cache.dir

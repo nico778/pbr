@@ -106,7 +106,7 @@ public:
 		VkCommandBufferBeginInfo cmdBufInfo = vks::initializers::commandBufferBeginInfo();
 
 		VkClearValue cl_Vals[2];
-		cl_Vals[0].color = defaultClearColor;
+		cl_Vals[0].color = defaultClearColor; //{ 0.4f, 0.6f, 0.9f, 1.0f };
 		cl_Vals[1].depthStencil = { 1.0f, 0 };
 
 		VkRenderPassBeginInfo rPB_Info = vks::initializers::renderPassBeginInfo();
@@ -255,24 +255,24 @@ public:
 		VK_CHECK_RESULT(vkCreateGraphicsPipelines(device, pipelineCache, 1, &plC_Info, nullptr, &pl));
 	}
 
-	// Prepare and initialize uniform buffer containing shader uniforms
+	//Prepare and initialize uniform buffer containing shader uniforms
 	void prepareUniformBuffers()
 	{
-		// Object vertex shader uniform buffer
+		//Object vertex shader uniform buffer
 		VK_CHECK_RESULT(vulkanDevice->createBuffer(
 			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
 			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
 			&uniBufs.artefact,
 			sizeof(ub_Ms)));
 
-		// Shared parameter uniform buffer
+		//Shared parameter uniform buffer
 		VK_CHECK_RESULT(vulkanDevice->createBuffer(
 			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
 			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
 			&uniBufs.props,
 			sizeof(ub_Props)));
 
-		// Map persistent
+		//Map persistent
 		VK_CHECK_RESULT(uniBufs.artefact.map());
 		VK_CHECK_RESULT(uniBufs.props.map());
 
@@ -282,7 +282,7 @@ public:
 
 	void updateUniformBuffers()
 	{
-		// 3D object
+		//3D object
 		ub_Ms.mapping = camera.matrices.perspective;
 		ub_Ms.view = camera.matrices.view;
 		ub_Ms.mesh = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f + (meshes.artefactID == 1 ? 45.0f : 0.0f)), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -292,17 +292,18 @@ public:
 
 	void updateLights()
 	{
-		const float p = 15.0f;
-		ub_Props.lightSource[0] = glm::vec4(-p, -p*0.5f, -p, 1.0f);
-		ub_Props.lightSource[1] = glm::vec4(-p, -p*0.5f,  p, 1.0f);
-		ub_Props.lightSource[2] = glm::vec4( p, -p*0.5f,  p, 1.0f);
-		ub_Props.lightSource[3] = glm::vec4( p, -p*0.5f, -p, 1.0f);
-
+		const float pos = 15.0f;
+		ub_Props.lightSource[0] = glm::vec4(-pos, -pos*0.5f, -pos, 1.0f);
+		ub_Props.lightSource[1] = glm::vec4(-pos, -pos*0.5f,  pos, 1.0f);
+		ub_Props.lightSource[2] = glm::vec4( pos, -pos*0.5f,  pos, 1.0f);
+		ub_Props.lightSource[3] = glm::vec4( pos, -pos*0.5f, -pos, 1.0f);
+		
+		//not relevant for now
 		if (!paused)
 		{
 			ub_Props.lightSource[0].x = sin(glm::radians(timer * 360.0f)) * 20.0f;
-			ub_Props.lightSource[0].z = cos(glm::radians(timer * 360.0f)) * 20.0f;
 			ub_Props.lightSource[1].x = cos(glm::radians(timer * 360.0f)) * 20.0f;
+			ub_Props.lightSource[0].z = cos(glm::radians(timer * 360.0f)) * 20.0f;
 			ub_Props.lightSource[1].y = sin(glm::radians(timer * 360.0f)) * 20.0f;
 		}
 
@@ -348,11 +349,11 @@ public:
 
 	virtual void OnUpdateUIOverlay(vks::UIOverlay *overlay)
 	{
-		if (overlay->header("Settings")) {
-			if (overlay->comboBox("Material", &material_ID, material_Title)) {
+		if (overlay->header("Setup")) {
+			if (overlay->comboBox("Selected Material", &material_ID, material_Title)) {
 				createCmdBufs();
 			}
-			if (overlay->comboBox("Object type", &meshes.artefactID, mesh_Title)) {
+			if (overlay->comboBox("Selected Mesh", &meshes.artefactID, mesh_Title)) {
 				updateUniformBuffers();
 				createCmdBufs();
 			}

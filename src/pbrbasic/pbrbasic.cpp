@@ -3,8 +3,8 @@
 
 #define VERTEX_BUFFER_BIND_ID 0
 #define ENABLE_VALIDATION false
-#define GRID_DIM 7
-#define OBJ_DIM 0.05f
+#define FIELD 7
+//#define OBJ_DIM 0.05f
 
 struct Material {
 	struct VulkanPC {
@@ -73,7 +73,7 @@ public:
 		paused = true;
 		timerSpeed *= 0.3f;
 
-		//setup some default materials (source: https://seblagarde.wordpress.com/2011/08/17/feeding-a-physical-based-lighting-mode/)
+		//https://seblagarde.wordpress.com/2011/08/17/feeding-a-physical-based-lighting-mode/)
 		//https://computergraphics.stackexchange.com/questions/4110/should-ideal-specular-multiply-light-colour-with-material-colour
 		materials.push_back(Material("Iron", glm::vec3(0.56f, 0.57f, 0.58f), 0.1f, 1.0f));
 		materials.push_back(Material("Copper", glm::vec3(0.95f, 0.64f, 0.54f), 0.1f, 1.0f));
@@ -101,52 +101,52 @@ public:
 		uniBufs.props.destroy();
 	}
 
-	void buildCommandBuffers()
+	void createCmdBufs()
 	{
 		VkCommandBufferBeginInfo cmdBufInfo = vks::initializers::commandBufferBeginInfo();
 
-		VkClearValue clearValues[2];
-		clearValues[0].color = defaultClearColor;
-		clearValues[1].depthStencil = { 1.0f, 0 };
+		VkClearValue cl_Vals[2];
+		cl_Vals[0].color = defaultClearColor;
+		cl_Vals[1].depthStencil = { 1.0f, 0 };
 
-		VkRenderPassBeginInfo renderPassBeginInfo = vks::initializers::renderPassBeginInfo();
-		renderPassBeginInfo.renderPass = renderPass;
-		renderPassBeginInfo.renderArea.offset.x = 0;
-		renderPassBeginInfo.renderArea.offset.y = 0;
-		renderPassBeginInfo.renderArea.extent.width = width;
-		renderPassBeginInfo.renderArea.extent.height = height;
-		renderPassBeginInfo.clearValueCount = 2;
-		renderPassBeginInfo.pClearValues = clearValues;
-
+		VkRenderPassBeginInfo rPB_Info = vks::initializers::renderPassBeginInfo();
+		rPB_Info.renderPass = renderPass;
+		rPB_Info.renderArea.offset.x = 0;
+		rPB_Info.renderArea.offset.y = 0;
+		rPB_Info.renderArea.extent.width = width;
+		rPB_Info.renderArea.extent.height = height;
+		rPB_Info.clearValueCount = 2;
+		rPB_Info.pClearValues = cl_Vals;
+		 
 		for (int32_t i = 0; i < drawCmdBuffers.size(); ++i)
 		{
 			//set target frame buffer
-			renderPassBeginInfo.framebuffer = frameBuffers[i];
+			rPB_Info.framebuffer = frameBuffers[i];
 
 			VK_CHECK_RESULT(vkBeginCommandBuffer(drawCmdBuffers[i], &cmdBufInfo));
 
-			vkCmdBeginRenderPass(drawCmdBuffers[i], &renderPassBeginInfo, VK_SUBPASS_CONTENTS_INLINE);
+			vkCmdBeginRenderPass(drawCmdBuffers[i], &rPB_Info, VK_SUBPASS_CONTENTS_INLINE);
 
-			VkViewport viewport = vks::initializers::viewport((float)width, (float)height, 0.0f, 1.0f);
-			vkCmdSetViewport(drawCmdBuffers[i], 0, 1, &viewport);
+			VkViewport vp = vks::initializers::viewport((float)width, (float)height, 0.0f, 1.0f);
+			vkCmdSetViewport(drawCmdBuffers[i], 0, 1, &vp);
 
-			VkRect2D scissor = vks::initializers::rect2D(width, height, 0, 0);
-			vkCmdSetScissor(drawCmdBuffers[i], 0, 1, &scissor);
+			VkRect2D scis = vks::initializers::rect2D(width, height, 0, 0);
+			vkCmdSetScissor(drawCmdBuffers[i], 0, 1, &scis);
 
 			//objects
 			vkCmdBindPipeline(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl);
 			vkCmdBindDescriptorSets(drawCmdBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, pl_Layout, 0, 1, &dSet, 0, NULL);
 
-			Material mat = materials[material_ID];
+			Material material = materials[material_ID];
 
 			//draw materials
-			for (uint32_t y = 0; y < GRID_DIM; y++) {
-				for (uint32_t x = 0; x < GRID_DIM; x++) {
-					glm::vec3 pos = glm::vec3(float(x - (GRID_DIM / 2.0f)) * 2.5f, 0.0f, float(y - (GRID_DIM / 2.0f)) * 2.5f);
-					vkCmdPushConstants(drawCmdBuffers[i], pl_Layout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::vec3), &pos);
-					mat.props.metallic = glm::clamp((float)x / (float)(GRID_DIM - 1), 0.1f, 1.0f);
-					mat.props.roughness = glm::clamp((float)y / (float)(GRID_DIM - 1), 0.05f, 1.0f);
-					vkCmdPushConstants(drawCmdBuffers[i], pl_Layout, VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(glm::vec3), sizeof(Material::VulkanPC), &mat);
+			for (uint32_t y = 0; y < FIELD; y++) {
+				for (uint32_t x = 0; x < FIELD; x++) {
+					glm::vec3 position = glm::vec3(float(x - (FIELD / 2.0f)) * 2.5f, 0.0f, float(y - (FIELD / 2.0f)) * 2.5f);
+					vkCmdPushConstants(drawCmdBuffers[i], pl_Layout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::vec3), &position);
+					material.props.metallic = glm::clamp((float)x / (float)(FIELD - 1), 0.1f, 1.0f);
+					material.props.roughness = glm::clamp((float)y / (float)(FIELD - 1), 0.05f, 1.0f);
+					vkCmdPushConstants(drawCmdBuffers[i], pl_Layout, VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(glm::vec3), sizeof(Material::VulkanPC), &material);
 					meshes.artefacts[meshes.artefactID].draw(drawCmdBuffers[i]);
 				}
 			}
@@ -158,101 +158,101 @@ public:
 			VK_CHECK_RESULT(vkEndCommandBuffer(drawCmdBuffers[i]));
 		}
 	}
-
+	
 	void loadAssets()
 	{
-		std::vector<std::string> filenames = { "sphere.gltf", "teapot.gltf", "suzanne.gltf", "deer.gltf" };
-		meshes.artefacts.resize(filenames.size());
-		for (size_t i = 0; i < filenames.size(); i++) {			
-			meshes.artefacts[i].loadFromFile(getAssetPath() + "models/" + filenames[i], vulkanDevice, queue, vkglTF::FileLoadingFlags::PreTransformVertices | vkglTF::FileLoadingFlags::FlipY);
+		std::vector<std::string> files = { "sphere.gltf", "teapot.gltf", "suzanne.gltf", "deer.gltf" };
+		meshes.artefacts.resize(files.size());
+		for (size_t i = 0; i < files.size(); i++) {			
+			meshes.artefacts[i].loadFromFile(getAssetPath() + "models/" + files[i], vulkanDevice, queue, vkglTF::FileLoadingFlags::PreTransformVertices | vkglTF::FileLoadingFlags::FlipY);
 		}
 	}
 
 	void setupDescriptorSetLayout()
 	{
-		std::vector<VkDescriptorSetLayoutBinding> setLayoutBindings = {
+		std::vector<VkDescriptorSetLayoutBinding> dsl_Binding = {
 			vks::initializers::descriptorSetLayoutBinding(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0),
 			vks::initializers::descriptorSetLayoutBinding(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_FRAGMENT_BIT, 1),
 		};
 
-		VkDescriptorSetLayoutCreateInfo descriptorLayout =
-			vks::initializers::descriptorSetLayoutCreateInfo(setLayoutBindings);
+		VkDescriptorSetLayoutCreateInfo dsl_Info =
+			vks::initializers::descriptorSetLayoutCreateInfo(dsl_Binding);
 
-		VK_CHECK_RESULT(vkCreateDescriptorSetLayout(device, &descriptorLayout, nullptr, &dSet_Layout));
+		VK_CHECK_RESULT(vkCreateDescriptorSetLayout(device, &dsl_Info, nullptr, &dSet_Layout));
 
-		VkPipelineLayoutCreateInfo pipelineLayoutCreateInfo =
+		VkPipelineLayoutCreateInfo plLayout_Info =
 			vks::initializers::pipelineLayoutCreateInfo(&dSet_Layout, 1);
 
-		std::vector<VkPushConstantRange> pushConstantRanges = {
+		std::vector<VkPushConstantRange> pC_Range = {
 			vks::initializers::pushConstantRange(VK_SHADER_STAGE_VERTEX_BIT, sizeof(glm::vec3), 0),
 			vks::initializers::pushConstantRange(VK_SHADER_STAGE_FRAGMENT_BIT, sizeof(Material::VulkanPC), sizeof(glm::vec3)),
 		};
 
-		pipelineLayoutCreateInfo.pushConstantRangeCount = 2;
-		pipelineLayoutCreateInfo.pPushConstantRanges = pushConstantRanges.data();
+		plLayout_Info.pushConstantRangeCount = 2;
+		plLayout_Info.pPushConstantRanges = pC_Range.data();
 
-		VK_CHECK_RESULT(vkCreatePipelineLayout(device, &pipelineLayoutCreateInfo, nullptr, &pl_Layout));
+		VK_CHECK_RESULT(vkCreatePipelineLayout(device, &plLayout_Info, nullptr, &pl_Layout));
 	}
 
 	void setupDescriptorSets()
 	{
-		// Descriptor Pool
-		std::vector<VkDescriptorPoolSize> poolSizes = {
+		//Descriptor Pool
+		std::vector<VkDescriptorPoolSize> pool_Size = {
 			vks::initializers::descriptorPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 4),
 		};
 
-		VkDescriptorPoolCreateInfo descriptorPoolInfo =
-			vks::initializers::descriptorPoolCreateInfo(poolSizes, 2);
+		VkDescriptorPoolCreateInfo dP_Info =
+			vks::initializers::descriptorPoolCreateInfo(pool_Size, 2);
 
-		VK_CHECK_RESULT(vkCreateDescriptorPool(device, &descriptorPoolInfo, nullptr, &descriptorPool));
+		VK_CHECK_RESULT(vkCreateDescriptorPool(device, &dP_Info, nullptr, &descriptorPool));
 
-		// Descriptor sets
+		//Descriptor sets
 
-		VkDescriptorSetAllocateInfo allocInfo =
+		VkDescriptorSetAllocateInfo dSA_Info =
 			vks::initializers::descriptorSetAllocateInfo(descriptorPool, &dSet_Layout, 1);
 
-		// 3D object descriptor set
-		VK_CHECK_RESULT(vkAllocateDescriptorSets(device, &allocInfo, &dSet));
+		//3D object descriptor set
+		VK_CHECK_RESULT(vkAllocateDescriptorSets(device, &dSA_Info, &dSet));
 
-		std::vector<VkWriteDescriptorSet> writeDescriptorSets = {
+		std::vector<VkWriteDescriptorSet> write_DSet = {
 			vks::initializers::writeDescriptorSet(dSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 0, &uniBufs.artefact.descriptor),
 			vks::initializers::writeDescriptorSet(dSet, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, &uniBufs.props.descriptor),
 		};
-		vkUpdateDescriptorSets(device, static_cast<uint32_t>(writeDescriptorSets.size()), writeDescriptorSets.data(), 0, NULL);
+		vkUpdateDescriptorSets(device, static_cast<uint32_t>(write_DSet.size()), write_DSet.data(), 0, NULL);
 	}
 
 	void preparePipelines()
 	{
-		VkPipelineInputAssemblyStateCreateInfo inputAssemblyState =  vks::initializers::pipelineInputAssemblyStateCreateInfo(VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, 0, VK_FALSE);
-		VkPipelineRasterizationStateCreateInfo rasterizationState = vks::initializers::pipelineRasterizationStateCreateInfo(VK_POLYGON_MODE_FILL, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE);
-		VkPipelineColorBlendAttachmentState blendAttachmentState = vks::initializers::pipelineColorBlendAttachmentState(0xf, VK_FALSE);
-		VkPipelineColorBlendStateCreateInfo colorBlendState = vks::initializers::pipelineColorBlendStateCreateInfo(1, &blendAttachmentState);
-		VkPipelineDepthStencilStateCreateInfo depthStencilState = vks::initializers::pipelineDepthStencilStateCreateInfo(VK_FALSE, VK_FALSE, VK_COMPARE_OP_LESS_OR_EQUAL);
-		VkPipelineViewportStateCreateInfo viewportState = vks::initializers::pipelineViewportStateCreateInfo(1, 1);
-		VkPipelineMultisampleStateCreateInfo multisampleState = vks::initializers::pipelineMultisampleStateCreateInfo(VK_SAMPLE_COUNT_1_BIT);
-		std::vector<VkDynamicState> dynamicStateEnables = { VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR };
-		VkPipelineDynamicStateCreateInfo dynamicState = vks::initializers::pipelineDynamicStateCreateInfo(dynamicStateEnables);
-		VkGraphicsPipelineCreateInfo pipelineCI = vks::initializers::pipelineCreateInfo(pl_Layout, renderPass);
+		VkPipelineInputAssemblyStateCreateInfo iA_State =  vks::initializers::pipelineInputAssemblyStateCreateInfo(VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, 0, VK_FALSE);
+		VkPipelineRasterizationStateCreateInfo rast_State = vks::initializers::pipelineRasterizationStateCreateInfo(VK_POLYGON_MODE_FILL, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE);
+		VkPipelineColorBlendAttachmentState blendA_State = vks::initializers::pipelineColorBlendAttachmentState(0xf, VK_FALSE);
+		VkPipelineColorBlendStateCreateInfo cB_State = vks::initializers::pipelineColorBlendStateCreateInfo(1, &blendA_State);
+		VkPipelineDepthStencilStateCreateInfo depSten_State = vks::initializers::pipelineDepthStencilStateCreateInfo(VK_FALSE, VK_FALSE, VK_COMPARE_OP_LESS_OR_EQUAL);
+		VkPipelineViewportStateCreateInfo vpState = vks::initializers::pipelineViewportStateCreateInfo(1, 1);
+		VkPipelineMultisampleStateCreateInfo ms_State = vks::initializers::pipelineMultisampleStateCreateInfo(VK_SAMPLE_COUNT_1_BIT);
+		std::vector<VkDynamicState> dynSt_Enable = { VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR };
+		VkPipelineDynamicStateCreateInfo dynamicState = vks::initializers::pipelineDynamicStateCreateInfo(dynSt_Enable);
+		VkGraphicsPipelineCreateInfo plC_Info = vks::initializers::pipelineCreateInfo(pl_Layout, renderPass);
 
 		std::array<VkPipelineShaderStageCreateInfo, 2> shaderStages;
-		pipelineCI.pInputAssemblyState = &inputAssemblyState;
-		pipelineCI.pRasterizationState = &rasterizationState;
-		pipelineCI.pColorBlendState = &colorBlendState;
-		pipelineCI.pMultisampleState = &multisampleState;
-		pipelineCI.pViewportState = &viewportState;
-		pipelineCI.pDepthStencilState = &depthStencilState;
-		pipelineCI.pDynamicState = &dynamicState;
-		pipelineCI.stageCount = static_cast<uint32_t>(shaderStages.size());
-		pipelineCI.pStages = shaderStages.data();
-		pipelineCI.pVertexInputState = vkglTF::Vertex::getPipelineVertexInputState({ vkglTF::VertexComponent::Position, vkglTF::VertexComponent::Normal });
+		plC_Info.pInputAssemblyState = &iA_State;
+		plC_Info.pRasterizationState = &rast_State;
+		plC_Info.pColorBlendState = &cB_State;
+		plC_Info.pMultisampleState = &ms_State;
+		plC_Info.pViewportState = &vpState;
+		plC_Info.pDepthStencilState = &depSten_State;
+		plC_Info.pDynamicState = &dynamicState;
+		plC_Info.stageCount = static_cast<uint32_t>(shaderStages.size());
+		plC_Info.pStages = shaderStages.data();
+		plC_Info.pVertexInputState = vkglTF::Vertex::getPipelineVertexInputState({ vkglTF::VertexComponent::Position, vkglTF::VertexComponent::Normal });
 
-		// PBR pipeline
+		//PBR pipeline
 		shaderStages[0] = loadShader(getShadersPath() + "pbrbasic/pbr.vert.spv", VK_SHADER_STAGE_VERTEX_BIT);
 		shaderStages[1] = loadShader(getShadersPath() + "pbrbasic/pbr.frag.spv", VK_SHADER_STAGE_FRAGMENT_BIT);
-		// Enable depth test and write
-		depthStencilState.depthWriteEnable = VK_TRUE;
-		depthStencilState.depthTestEnable = VK_TRUE;
-		VK_CHECK_RESULT(vkCreateGraphicsPipelines(device, pipelineCache, 1, &pipelineCI, nullptr, &pl));
+		//Enable depth test and write
+		depSten_State.depthWriteEnable = VK_TRUE;
+		depSten_State.depthTestEnable = VK_TRUE;
+		VK_CHECK_RESULT(vkCreateGraphicsPipelines(device, pipelineCache, 1, &plC_Info, nullptr, &pl));
 	}
 
 	// Prepare and initialize uniform buffer containing shader uniforms
@@ -328,7 +328,7 @@ public:
 		setupDescriptorSetLayout();
 		preparePipelines();
 		setupDescriptorSets();
-		buildCommandBuffers();
+		createCmdBufs();
 		prepared = true;
 	}
 
@@ -350,11 +350,11 @@ public:
 	{
 		if (overlay->header("Settings")) {
 			if (overlay->comboBox("Material", &material_ID, material_Title)) {
-				buildCommandBuffers();
+				createCmdBufs();
 			}
 			if (overlay->comboBox("Object type", &meshes.artefactID, mesh_Title)) {
 				updateUniformBuffers();
-				buildCommandBuffers();
+				createCmdBufs();
 			}
 		}
 	}

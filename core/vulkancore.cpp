@@ -699,7 +699,7 @@ void VulkanExampleBase::updateOverlay()
 	ImGui::Render();
 
 	if (UIOverlay.update() || UIOverlay.updated) {
-		buildCommandBuffers();
+		createCmdBufs();
 		UIOverlay.updated = false;
 	}
 
@@ -2656,7 +2656,7 @@ void VulkanExampleBase::keyPressed(uint32_t) {}
 
 void VulkanExampleBase::mouseMoved(double x, double y, bool & handled) {}
 
-void VulkanExampleBase::buildCommandBuffers() {}
+void VulkanExampleBase::createCmdBufs() {}
 
 void VulkanExampleBase::createSynchronizationPrimitives()
 {
@@ -2857,7 +2857,7 @@ void VulkanExampleBase::windowResize()
 	// references to the recreated frame buffer
 	destroyCommandBuffers();
 	createCommandBuffers();
-	buildCommandBuffers();
+	createCmdBufs();
 	
 	// SRS - Recreate fences in case number of swapchain images has changed on resize
 	for (auto& fence : waitFences) {

@@ -65,7 +65,7 @@ public:
 	{
 		title = "Physically Based Rendering";
 		camera.type = Camera::CameraType::firstperson;
-		camera.setPosition(glm::vec3(10.0f, 15.0f, 1.0f));
+		camera.setPosition(glm::vec3(10.0f, 12.0f, 2.0f));
 		camera.setRotation(glm::vec3(-60.0f, 90.0f, 0.0f));
 		camera.movementSpeed = 5.0f;
 		camera.setPerspective(60.0f, (float)width / (float)height, 0.1f, 256.0f);
@@ -106,7 +106,7 @@ public:
 		VkCommandBufferBeginInfo cmdBufInfo = vks::initializers::commandBufferBeginInfo();
 
 		VkClearValue cl_Vals[2];
-		cl_Vals[0].color = defaultClearColor; //{ 0.4f, 0.6f, 0.9f, 1.0f };
+		cl_Vals[0].color = { 0.0f, 0.0f, 0.0f, 1.0f };
 		cl_Vals[1].depthStencil = { 1.0f, 0 };
 
 		VkRenderPassBeginInfo rPB_Info = vks::initializers::renderPassBeginInfo();
